@@ -1,0 +1,12 @@
+Hello
+
+<%= paginate @products %>
+<%= end %>
+
+<ul>
+    <%- @products.limit(nil).each do |product| %>
+        <li><%= product.name %></li>
+        <li><%= product.description %></li>
+        <li><%= product.price %></li>
+    <%- end %>
+</ul>
