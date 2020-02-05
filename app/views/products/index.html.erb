@@ -1,12 +1,12 @@
 Hello
 
-<%= paginate @products %>
-<%= end %>
-
 <ul>
-    <%- @products.limit(nil).each do |product| %>
-        <li><%= product.name %></li>
-        <li><%= product.description %></li>
-        <li><%= product.price %></li>
+    <%- @products.each do |product| %>
+        <li><%= product.name %> : <%= product.description %> - <%= product.price %>€</li>
+        <li>ID: <%= product.id %></li>
+        <li><%= link_to "#{product.comments.count} comments", "/products/#{product.id}/comments/new" %></li>
+        
     <%- end %>
 </ul>
+
+<%= will_paginate @products %>
